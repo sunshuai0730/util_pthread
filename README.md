@@ -1,2 +1,2 @@
-# util_phread
+# util_pthread
 posix-pthread线程封装
