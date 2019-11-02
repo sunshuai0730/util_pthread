@@ -1,3 +1,4 @@
+MAKE_INSTALL_PREFIX = ./install
 ITEM :=
 # target marcros
 ifneq ($(ITEM), TEST)
@@ -54,6 +55,13 @@ find-all-objs:
 .PHONY: show-info
 show-info:
 	@echo Building Project
+
+.PHONY: install
+install:
+	mkdir $(MAKE_INSTALL_PREFIX)/include/util_pthread/ -p
+	mkdir $(MAKE_INSTALL_PREFIX)/lib/ -p
+	cp $(TARGET) $(MAKE_INSTALL_PREFIX)/lib/ -f
+	cp include/util_pthread.h $(MAKE_INSTALL_PREFIX)include/util_pthread/ -f
 
 # need to be placed at the end of the file
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
