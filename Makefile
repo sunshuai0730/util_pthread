@@ -2,7 +2,7 @@ MAKE_INSTALL_PREFIX = ./install
 ITEM :=
 # target marcros
 ifneq ($(ITEM), TEST)
-TARGET := util_pthread.a
+TARGET := libutil_pthread.a
 else
 TARGET := test
 endif
