@@ -31,8 +31,8 @@ bool create_thread(pthread_t *tid, const size_t stacksize,
 	pthread_t _tid = INVALID_PTHREAD_TID;
 	pthread_attr_t attr;
 	struct sched_param param;
-	int min_pri = sched_get_priority_min(SCHED_FIFO);
-	int max_pri = sched_get_priority_max(SCHED_FIFO);
+	int min_pri = sched_get_priority_min(SCHED_RR);
+	int max_pri = sched_get_priority_max(SCHED_RR);
 	size_t _stacksize = stacksize;
 	int _pri = priority;
 
@@ -73,7 +73,7 @@ bool create_thread(pthread_t *tid, const size_t stacksize,
 	}
 
 	/* 设置调度策略FIFO */
-	if (pthread_attr_setschedpolicy(&attr, SCHED_FIFO) < 0)
+	if (pthread_attr_setschedpolicy(&attr, SCHED_RR) < 0)
 	{
 		printf("set attr schedpolicy error : %s\n", strerror(errno));
 		pthread_attr_destroy(&attr);
