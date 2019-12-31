@@ -171,7 +171,7 @@ bool if_thread_exsit(const pthread_t tid)
 
 	if (ESRCH == pthread_kill_err)
     {
-        printf("task=[%ld] is not exist!/n", tid);
+        printf("task=[%ld] is not exist!\n", tid);
         return false;
     }
     else if (EINVAL == pthread_kill_err)
